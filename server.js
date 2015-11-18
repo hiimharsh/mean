@@ -2,6 +2,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var config = require('./config');
+var mongoose = require('mongoose');
+
+mongoose.connect(config.database, function (err) {
+  // body...
+  if(err) {
+    console.log(err);
+  } else {
+    console.log("connected to database");
+  }
+})
 
 var app = express();
 
